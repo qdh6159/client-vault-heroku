@@ -27,7 +27,6 @@ app.use(function(req, res, next) {
 
 // CORS allows requests to come in from React
 app.use(cors({
-  credentials: true,
   origin: "*"
 }));
 
