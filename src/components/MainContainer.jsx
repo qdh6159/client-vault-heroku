@@ -66,7 +66,7 @@ class MainContainer extends Component {
     createClient = async (formData) => {
         console.log(formData)
         try{
-            const newClient = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`, {
+            const newClient = await fetch(`https://cors-anywhere.herokuapp.com/${process.env.REACT_APP_BACKEND_ADDRESS}/clients`, {
                 method: "POST",
                 body: JSON.stringify(formData),
                 credentials: false,
