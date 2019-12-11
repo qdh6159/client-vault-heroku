@@ -8,7 +8,7 @@ const path = require('path');
 require('./db/db');
 
 // Serve the static files from the React app
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(session({
   secret: 'keyboard cat',
