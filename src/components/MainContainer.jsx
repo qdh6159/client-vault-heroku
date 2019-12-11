@@ -66,7 +66,7 @@ class MainContainer extends Component {
     createClient = async (formData) => {
         console.log(formData)
         try{
-            const newClient = await fetch(`https://cors-anywhere.herokuapp.com/${process.env.REACT_APP_BACKEND_ADDRESS}/clients`, {
+            const newClient = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`, {
                 method: "POST",
                 body: JSON.stringify(formData),
                 credentials: false,
@@ -91,7 +91,7 @@ class MainContainer extends Component {
     getClients = async () => {
         try{
             console.log("Getting the movies*****************")
-        const clients = await fetch(`https://cors-anywhere.herokuapp.com//${process.env.REACT_APP_BACKEND_ADDRESS}/clients`)
+        const clients = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`)
         const parsedResponse = await clients.json();
         if(parsedResponse.status.code === 200){
             this.setState({
