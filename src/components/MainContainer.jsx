@@ -101,6 +101,7 @@ class MainContainer extends Component {
                 console.log(this.state)
             }
         }catch(err){
+            console.log("Broken request man")
             console.log(err)
         }
     }
