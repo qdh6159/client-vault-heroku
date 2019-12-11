@@ -22,9 +22,10 @@ app.use(bodyParser.json());
 
 // CORS allows requests to come in from React
 app.use(cors({
-  credentials: false,
   origin: 'https://client-vault-heroku.herokuapp.com'
 }));
+app.use(cors(corsOptions));
+app.options('*', cors());
 
 app.use((req, res, next)=>{
   console.log(req.session.userId)
