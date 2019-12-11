@@ -91,7 +91,7 @@ class MainContainer extends Component {
     getClients = async () => {
         try{
             console.log("Sending fetch to the server...")
-        const clients = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`)
+        const clients = await fetch("https://git.heroku.com/client-vault-heroku.git/clients")
         const parsedResponse = await clients.json();
         if(parsedResponse.status.code === 200){
             this.setState({
