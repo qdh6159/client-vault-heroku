@@ -16,7 +16,7 @@ const Client = require('../models/client');
   console.log(req.body, ' this is get all')
      try  {
         // res.send("this is the plant page")
-      const allClients = await Client.find().populate('user');
+      const allClients = await Client.find()
       console.log(allClients)
       // This is the response to react
       res.json({
