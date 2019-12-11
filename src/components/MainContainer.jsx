@@ -43,7 +43,7 @@ class MainContainer extends Component {
         const updateClient = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients/${id}`, {
             method: "PUT",
             body: JSON.stringify(formData),
-            credentials: "include",
+            credentials: false,
             headers: {
                 "Content-Type": "application/json"
             }
@@ -69,7 +69,7 @@ class MainContainer extends Component {
             const newClient = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`, {
                 method: "POST",
                 body: JSON.stringify(formData),
-                credentials: "include",
+                credentials: false,
                 headers: {
                     "Content-Type": "application/json",
                     
