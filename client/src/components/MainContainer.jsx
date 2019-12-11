@@ -21,7 +21,7 @@ class MainContainer extends Component {
     deleteClient = async (id) => {
         
         try{
-            const deleteClient = await fetch(`http://localhost:9000/clients/${id}`, {
+            const deleteClient = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients/${id}`, {
                 method: "DELETE",
                 // credentials: "include",
             })
@@ -40,7 +40,7 @@ class MainContainer extends Component {
         }
     }
     updateClient = async (id, formData) => {
-        const updateClient = await fetch(`http://localhost:9000/clients/${id}`, {
+        const updateClient = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients/${id}`, {
             method: "PUT",
             body: JSON.stringify(formData),
             credentials: "include",
@@ -66,7 +66,7 @@ class MainContainer extends Component {
     createClient = async (formData) => {
         console.log(formData)
         try{
-            const newClient = await fetch('http://localhost:9000/clients', {
+            const newClient = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`, {
                 method: "POST",
                 body: JSON.stringify(formData),
                 credentials: "include",
@@ -91,7 +91,7 @@ class MainContainer extends Component {
     getClients = async () => {
         try{
             console.log("Getting the movies*****************")
-        const clients = await fetch("http://localhost:9000/clients")
+        const clients = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`)
         const parsedResponse = await clients.json();
         if(parsedResponse.status.code === 200){
             this.setState({
