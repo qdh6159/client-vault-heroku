@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 
   try {
     console.log(req.body, ' this is req.body');
-    req.body.user = req.session.userId;
+    // req.body.user = req.session.userId;
     const createdPlant = await Client.create(req.body);
     console.log('response happening?')
     res.json({
