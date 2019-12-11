@@ -17,6 +17,10 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 // }));
 
 // SET UP CORS AS MIDDLEWARE, SO any client can make a request to our server
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
