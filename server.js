@@ -10,11 +10,11 @@ require('./db/db');
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
-}));
+// app.use(session({
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
 // SET UP CORS AS MIDDLEWARE, SO any client can make a request to our server
 app.use(bodyParser.urlencoded({extended: false}));
@@ -27,10 +27,10 @@ app.use(cors({
 app.use(cors(corsOptions));
 app.options('*', cors());
 
-app.use((req, res, next)=>{
-  console.log(req.session.userId)
-  next()
-})
+// app.use((req, res, next)=>{
+//   console.log(req.session.userId)
+//   next()
+// })
 
 // Require the controller after the middleware
 const clientController = require('./controllers/clientController');
