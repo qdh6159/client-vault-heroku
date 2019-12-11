@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 // CORS allows requests to come in from React
 app.use(cors({
-  origin: "*"
+  origin: process.env.REACT_ADDRESS
 }));
 
 

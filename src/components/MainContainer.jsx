@@ -90,7 +90,7 @@ class MainContainer extends Component {
     }
     getClients = async () => {
         try{
-            console.log("Getting the movies*****************")
+            console.log("Sending fetch to the server...")
         const clients = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/clients`)
         const parsedResponse = await clients.json();
         if(parsedResponse.status.code === 200){
