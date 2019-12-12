@@ -90,14 +90,14 @@ class MainContainer extends Component {
     }
     getClients = async () => {
         try{
-            console.log("Sending fetch to the server...")
-        const clients = await fetch("https://git.heroku.com/client-vault-heroku.git/clients")
-        const parsedResponse = await clients.json();
+            console.log("fetching...")
+            const clients = await fetch("https://git.heroku.com/client-vault-heroku.git/clients")
+            const parsedResponse = await clients.json();
         if(parsedResponse.status.code === 200){
             this.setState({
                 clients: parsedResponse.data})
                 console.log(parsedResponse.data)
-                console.log("We got the movies")
+                console.log("Success")
                 console.log(this.state)
             }
         }catch(err){
@@ -105,6 +105,7 @@ class MainContainer extends Component {
             console.log(err)
         }
     }
+    
     engageRetirementFilter = () => {
         console.log("turned on retirement filter")
         this.setState({qualifiedFilter: true})
