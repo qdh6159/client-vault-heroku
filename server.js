@@ -11,10 +11,10 @@ require('./db/db');
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // CORS AS MIDDLEWARE, SO any client can make a request to the server
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 app.use(cors({'origin': '*', 'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false, 'optionsSuccessStatus': 204}));
 
