@@ -29,7 +29,7 @@ const Client = require('../models/client');
 
     } catch (err){
 
-      res.send(err)
+      res.send(err + "*****Caught error*****")
 
     }
 });
