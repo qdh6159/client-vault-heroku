@@ -17,8 +17,8 @@
     "reactstrap": "^8.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "cd client && react-scripts build",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
