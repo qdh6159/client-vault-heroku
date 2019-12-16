@@ -7,8 +7,7 @@ const path           = require('path');
 
 require('./db/db');
 
-// Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+
 
 // CORS AS MIDDLEWARE, SO any client can make a request to the server
 app.use((req, res, next) => {
@@ -32,6 +31,17 @@ const authController  = require('./controllers/authController');
 
 app.use('/clients', clientController);
 app.use('/auth', authController);
+
+// Serve the static files from the React app
+
+if (process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+  })
+
+}
 
 app.listen(process.env.PORT || 9000, () => {
   console.log('listening on port 9000');
