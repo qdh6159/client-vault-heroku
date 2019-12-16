@@ -16,9 +16,10 @@
     "mongoose": "^5.4.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
